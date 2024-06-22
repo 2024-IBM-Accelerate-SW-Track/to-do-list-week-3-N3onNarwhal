@@ -9,7 +9,6 @@ class AddTodo extends Component {
     super();
     this.state = {
       content: "",
-      date: "",
       due: null
     };
   }
@@ -19,7 +18,6 @@ class AddTodo extends Component {
   handleChange = (event) => {
     this.setState({
       content: event.target.value,
-      date: Date().toLocaleString('en-US')
     });
   };
   handleDueDate = (event) => {
@@ -53,6 +51,7 @@ class AddTodo extends Component {
       // 4. The value of the text field also should reflect the local state of this component.
       <div>
         <TextField
+          data-testid="new-item-input"
           label="Add New Item"
           variant="outlined"
           onChange={this.handleChange}
@@ -72,6 +71,7 @@ class AddTodo extends Component {
           onClick={this.handleSubmit}
           variant="contained"
           color="primary"
+          data-testid="new-item-button"
         >
           Add
         </Button>
